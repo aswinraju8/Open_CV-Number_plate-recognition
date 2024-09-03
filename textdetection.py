@@ -2,7 +2,7 @@ import cv2 as cv
 from PIL import Image
 from pytesseract import pytesseract
 import csv
-imgpath = r'C:\Users\aswin\Face_detecton_foler\dtectedface.png'
+imgpath = r'C:\Users\image_recoganised'
 capture = cv.VideoCapture(0)
 while True:
     boolean, img = capture.read()
@@ -21,7 +21,7 @@ def tessract():
     return text[:-1].strip()
 vehi_num = tessract()
 print(vehi_num)
-with open(r"C:\Users\aswin\PycharmProjects\pythonProject\vehicle_details.csv") as vehicle_det:
+with open(r"C:\vehicle_details.csv") as vehicle_det:
     vehicle_details_data = csv.reader(vehicle_det)
     next(vehicle_details_data)
     for row in vehicle_details_data:
@@ -30,8 +30,3 @@ with open(r"C:\Users\aswin\PycharmProjects\pythonProject\vehicle_details.csv") a
             print("Vehicle Details\n")
             print("Vehicle Number :%s \nMotorist Name : %s \nAmount : %s"%(row[0],row[1],row[2]))
             break
-        '''else:
-            print("Vehicle Details\n")
-            print("Vehicle Number :KLA12345 \nMotorist Name : Aswin Raju \nAmount :150")
-            break'''
-
